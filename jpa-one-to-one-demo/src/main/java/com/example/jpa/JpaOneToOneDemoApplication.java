@@ -9,7 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 @SpringBootApplication
 public class JpaOneToOneDemoApplication implements CommandLineRunner {
@@ -35,6 +38,22 @@ public class JpaOneToOneDemoApplication implements CommandLineRunner {
 		// Create a User instance
 		User user = new User("Rajeev", "Singh", "rajeev@callicoder.com",
 				"MY_SUPER_SECRET_PASSWORD");
+
+
+		User user2 = new User("Rajeev", "Singh", "rajeev@callicoder.com",
+				"MY_SUPER_SECRET_PASSWORD");
+
+
+		if(user.equals(user2)) {
+			System.out.println("Objects are equal");
+		}
+
+		List<User> userList = new ArrayList<>();
+		userList.add(user);
+		if (!userList.contains(user2)) {
+			userList.add(user);
+		}
+
 
 		Calendar dateOfBirth = Calendar.getInstance();
 		dateOfBirth.set(1992, 7, 21);
